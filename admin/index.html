@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - Link Manager</title>
+    <title>Admin Dashboard - Link Manager</title>
     <style>
         body { background-color: #1a202c; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: white; }
-        .card { background: #2d3748; border-radius: 15px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #4a5568; background: #1a202c; color: white; box-sizing: border-box; margin-bottom: 15px; }
-        .btn { width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; background-color: #3182ce; color: white; }
+        .card { background: #2d3748; border-radius: 15px; padding: 30px; width: 100%; max-width: 450px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #4a5568; background: #1a202c; color: white; box-sizing: border-box; margin-bottom: 10px; }
+        .btn { width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; background-color: #3182ce; color: white; margin-bottom: 5px; }
+        .current-link { background: #1a202c; padding: 10px; border-radius: 6px; font-size: 12px; color: #63b3ed; word-break: break-all; margin-bottom: 15px; border-left: 4px solid #63b3ed; }
         #admin-content { display: none; }
-        .logout { background: #e53e3e; margin-top: 10px; }
-        label { display: block; margin-top: 15px; color: #a0aec0; font-size: 14px; }
+        .logout { background: #e53e3e; margin-top: 20px; }
+        label { display: block; margin-top: 15px; color: #a0aec0; font-size: 14px; font-weight: bold; }
+        h2 { font-size: 16px; margin: 0 0 10px 0; color: #cbd5e0; }
     </style>
 </head>
 <body>
@@ -25,14 +27,23 @@
     </div>
 
     <div id="admin-content">
-        <h1 style="color:#63b3ed">Link Manager</h1>
-        <label>V1 Link (Page 1)</label>
-        <input type="text" id="urlV1" placeholder="Paste link for V1...">
-        <button class="btn" style="background:#38a169" onclick="updateLink('page1', 'urlV1')">UPDATE V1</button>
+        <h1 style="color:#63b3ed; text-align:center; margin-bottom:25px;">Control Center</h1>
         
-        <label>V2 Link (Page 2)</label>
-        <input type="text" id="urlV2" placeholder="Paste link for V2...">
-        <button class="btn" onclick="updateLink('page2', 'urlV2')">UPDATE V2</button>
+        <div style="margin-bottom: 30px; border-bottom: 1px solid #4a5568; padding-bottom: 10px;">
+            <h2>V1 (Group 1)</h2>
+            <label>Current Active Link:</label>
+            <div id="displayV1" class="current-link">Loading...</div>
+            <input type="text" id="urlV1" placeholder="Paste NEW WhatsApp link here...">
+            <button class="btn" style="background:#38a169" onclick="updateLink('page1', 'urlV1')">UPDATE V1 LINK</button>
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <h2>V2 (Group 2)</h2>
+            <label>Current Active Link:</label>
+            <div id="displayV2" class="current-link">Loading...</div>
+            <input type="text" id="urlV2" placeholder="Paste NEW WhatsApp link here...">
+            <button class="btn" onclick="updateLink('page2', 'urlV2')">UPDATE V2 LINK</button>
+        </div>
         
         <button class="btn logout" onclick="logout()">LOGOUT</button>
     </div>
@@ -43,7 +54,6 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
 <script>
-  // YOUR FULL CORRECT CONFIG
   const firebaseConfig = {
     apiKey: "AIzaSyAoL47CNAJ7Rx1wAPgDbBjbkWef9OqfCBU",
     authDomain: "project-ads-4d652.firebaseapp.com",
@@ -51,8 +61,7 @@
     projectId: "project-ads-4d652",
     storageBucket: "project-ads-4d652.firebasestorage.app",
     messagingSenderId: "180509858222",
-    appId: "1:180509858222:web:bd8a8c1a85c5f61345d03f",
-    measurementId: "G-PX783L6N99"
+    appId: "1:180509858222:web:bd8a8c1a85c5f61345d03f"
   };
 
   firebase.initializeApp(firebaseConfig);
@@ -63,11 +72,22 @@
     if (user) {
       document.getElementById('login-form').style.display = 'none';
       document.getElementById('admin-content').style.display = 'block';
+      loadCurrentLinks(); // Start showing the links once logged in
     } else {
       document.getElementById('login-form').style.display = 'block';
       document.getElementById('admin-content').style.display = 'none';
     }
   });
+
+  // THIS FUNCTION SHOWS THE LINKS ON THE SCREEN
+  function loadCurrentLinks() {
+    db.ref('links/page1').on('value', snap => {
+        document.getElementById('displayV1').innerText = snap.val() || "No link set for V1";
+    });
+    db.ref('links/page2').on('value', snap => {
+        document.getElementById('displayV2').innerText = snap.val() || "No link set for V2";
+    });
+  }
 
   function login() {
     const e = document.getElementById('email').value;
@@ -83,7 +103,7 @@
 
     db.ref('links/' + pageId).set(newUrl)
       .then(() => {
-          alert("Success! Link updated.");
+          alert("Successfully updated!");
           document.getElementById(inputId).value = "";
       })
       .catch(err => alert("Error: " + err.message));
