@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Link Manager</title>
+    <style>
+        body { background-color: #1a202c; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: white; }
+        .card { background: #2d3748; border-radius: 15px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #4a5568; background: #1a202c; color: white; box-sizing: border-box; margin-bottom: 15px; }
+        .btn { width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; background-color: #3182ce; color: white; }
+        #admin-content { display: none; } /* Hidden by default */
+        .logout { background: #e53e3e; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div id="login-form">
+        <h1 style="text-align:center">Admin Login</h1>
+        <input type="email" id="email" placeholder="Admin Email">
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn" onclick="login()">LOGIN</button>
+    </div>
+
+    <div id="admin-content">
+        <h1 style="color:#63b3ed">Link Manager</h1>
+        <label>V1 Link (Page 1)</label>
+        <input type="text" id="urlV1" placeholder="Paste link for V1...">
+        <button class="btn" style="background:#38a169" onclick="updateLink('page1', 'urlV1')">UPDATE V1</button>
+        
+        <label style="display:block; margin-top:20px">V2 Link (Page 2)</label>
+        <input type="text" id="urlV2" placeholder="Paste link for V2...">
+        <button class="btn" onclick="updateLink('page2', 'urlV2')">UPDATE V2</button>
+        
+        <button class="btn logout" onclick="logout()">LOGOUT</button>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+<script>
+  // YOUR CONFIG (Keep this the same)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAoL47CNAJ7Rx1wAPgDbBjbI...", 
+    authDomain: "project-ads-4d652.firebaseapp.com",
+    databaseURL: "https://project-ads-4d652-default-rtdb.firebaseio.com",
+    projectId: "project-ads-4d652",
+    storageBucket: "project-ads-4d652.firebasestorage.app",
+    messagingSenderId: "180509858222",
+    appId: "1:180509858222:web:bd8a8c1a85c5f61345d03f"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.database();
+
+  // Watch for login/logout
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      document.getElementById('login-form').style.display = 'none';
+      document.getElementById('admin-content').style.display = 'block';
+    } else {
+      document.getElementById('login-form').style.display = 'block';
+      document.getElementById('admin-content').style.display = 'none';
+    }
+  });
+
+  function login() {
+    const e = document.getElementById('email').value;
+    const p = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(e, p).catch(err => alert(err.message));
+  }
+
+  function logout() { auth.signOut(); }
+
+  function updateLink(pageId, inputId) {
+    const newUrl = document.getElementById(inputId).value;
+    if(!newUrl.includes('whatsapp.com')) return alert("Invalid Link!");
+
+    db.ref('links/' + pageId).set(newUrl)
+      .then(() => alert("V"+pageId.slice(-1)+" Updated!"))
+      .catch(err => alert("Error: " + err.message));
+  }
+</script>
+</body>
+</html>
