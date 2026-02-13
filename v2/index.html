@@ -52,8 +52,9 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
 <script>
+  // UPDATED CONFIG WITH FULL API KEY
   const firebaseConfig = {
-    apiKey: "AIzaSyAoL47CNAJ7Rx1wAPgDbBjbI...", 
+    apiKey: "AIzaSyAoL47CNAJ7Rx1wAPgDbBjbkWef9OqfCBU", 
     authDomain: "project-ads-4d652.firebaseapp.com",
     databaseURL: "https://project-ads-4d652-default-rtdb.firebaseio.com",
     projectId: "project-ads-4d652",
@@ -65,12 +66,11 @@
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
-    // LISTEN FOR PAGE 2 LINK
+  // THIS FETCHES THE LINK FROM THE "page2" ENTRY IN YOUR DATABASE
   db.ref('links/page2').on('value', (snapshot) => {
     const url = snapshot.val();
     if(url) { document.getElementById('whatsapp-btn').href = url; }
   });
-
 </script>
 </body>
 </html>
