@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - High Paying Jobs</title>
+    <title>Digital Skills Training Community</title>
     <script>
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+      var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+      ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
       ttq.load('D53HIT3C77U84I7BJNA0');
       ttq.page();
     }(window, document, 'ttq');
     </script>
     <style>
-        body { background-color: #e0f2f1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        body { 
+            background-color: #e0f2f1; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            padding: 20px; 
+            -webkit-user-select: none; /* Disables text selection */
+            -ms-user-select: none;
+            user-select: none;
+        }
         .card { background: white; border-radius: 20px; padding: 30px; max-width: 350px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
         h2 { color: #555; font-size: 18px; margin-bottom: 5px; font-weight: 600; }
         h1 { color: #d32f2f; font-size: 24px; line-height: 1.2; margin-top: 0; font-weight: 800; }
@@ -28,11 +40,11 @@
         footer { margin-top: 25px; font-size: 12px; color: #aaa; letter-spacing: 1px; }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
 <div class="card">
     <h2>In order to</h2>
-    <h1>Start Earning Good Money With High Digital Skills...</h1>
+    <h1>Build Practical & High-Value Digital Skills...</h1>
     <h3>You Will Need These 3 Things</h3>
     <ul>
         <li>An internet-connected smartphone, tablet or laptop</li>
@@ -40,18 +52,32 @@
         <li>A spirit of implementation and dedication</li>
     </ul>
     <div class="commitment">
-        <strong>YES!</strong> I have these 3 things and I am going to apply this life-changing information once it is in my hands.
+        <strong>YES!</strong> I have these 3 things and I am ready to apply this practical training once I gain access.
     </div>
 
     <a id="whatsapp-btn" href="#" class="btn">CLICK HERE TO JOIN THE TRAINING NOW!</a>
 
-    <footer>© 2025 HIGH PAYING JOBS</footer>
+    <footer>© 2026 DIGITAL SKILLS ACADEMY</footer>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
 <script>
+  // DISABLE RIGHT-CLICK & CONSOLE SHORTCUTS
+  document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+  });
+
+  document.addEventListener('keydown', function(e) {
+      // Prevents F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      if (e.keyCode == 123 || 
+         (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
+         (e.ctrlKey && e.keyCode == 85)) {
+          e.preventDefault();
+      }
+  });
+
   // UPDATED CONFIG WITH FULL API KEY
   const firebaseConfig = {
     apiKey: "AIzaSyAoL47CNAJ7Rx1wAPgDbBjbkWef9OqfCBU", 
@@ -66,10 +92,12 @@
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
-  // THIS FETCHES THE LINK FROM THE "page2" ENTRY IN YOUR DATABASE
-  db.ref('links/page2').on('value', (snapshot) => {
+  // THIS FETCHES THE LINK FROM THE "page1" ENTRY IN YOUR DATABASE
+  db.ref('links/page1').on('value', (snapshot) => {
     const url = snapshot.val();
-    if(url) { document.getElementById('whatsapp-btn').href = url; }
+    if(url) { 
+        document.getElementById('whatsapp-btn').href = url; 
+    }
   });
 </script>
 </body>
