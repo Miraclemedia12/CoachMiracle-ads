@@ -1,78 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - High Paying Jobs</title>
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-      ttq.load('D53HIT3C77U84I7BJNA0');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-    <style>
-        body { background-color: #e0f2f1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .card { background: white; border-radius: 20px; padding: 30px; max-width: 350px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
-        h2 { color: #555; font-size: 18px; margin-bottom: 5px; font-weight: 600; }
-        h1 { color: #d32f2f; font-size: 24px; line-height: 1.2; margin-top: 0; font-weight: 800; }
-        h3 { text-decoration: underline; font-size: 18px; margin-top: 25px; color: #333; }
-        ul { list-style: none; padding: 0; text-align: left; display: inline-block; margin: 20px 0; }
-        li { margin-bottom: 15px; font-size: 16px; position: relative; padding-left: 35px; color: #444; font-weight: 500; line-height: 1.4; }
-        li::before { content: '✓'; position: absolute; left: 0; color: #2ecc71; font-weight: bold; font-size: 22px; }
-        .commitment { background-color: #f0fff4; border-left: 5px solid #2ecc71; padding: 15px; border-radius: 8px; text-align: left; font-size: 15px; margin: 25px 0; color: #2d3436; line-height: 1.5; font-style: italic; }
-        .btn { background: linear-gradient(to bottom, #2ecc71, #27ae60); color: white; border: none; padding: 18px 20px; border-radius: 12px; font-weight: bold; font-size: 18px; width: 100%; cursor: pointer; box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4); text-decoration: none; display: block; box-sizing: border-box; transition: transform 0.2s ease; }
-        .btn:active { transform: scale(0.98); }
-        footer { margin-top: 25px; font-size: 12px; color: #aaa; letter-spacing: 1px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SkillForge Community – Learn practical digital skills including digital marketing, freelancing tools, content creation, and online productivity. Free educational community for personal and professional growth." />
+  <title>SkillForge Community | Learn Digital Skills</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-<div class="card">
-    <h2>In order to</h2>
-    <h1>Start Earning Good Money With High Digital Skills...</h1>
-    <h3>You Will Need These 3 Things</h3>
-    <ul>
-        <li>An internet-connected smartphone, tablet or laptop</li>
-        <li>1–2 hrs a day</li>
-        <li>A spirit of implementation and dedication</li>
-    </ul>
-    <div class="commitment">
-        <strong>YES!</strong> I have these 3 things and I am going to apply this life-changing information once it is in my hands.
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Skill<span>Forge</span></a>
+      <nav class="nav">
+        <a href="#skills">Skills</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <button class="btn btn-sm btn-primary" id="header-cta">Join Community</button>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
     </div>
+  </header>
 
-    <a id="whatsapp-btn" href="#" class="btn">CLICK HERE TO JOIN THE TRAINING NOW!</a>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="badge">Free Educational Community</div>
+      <h1>Build Practical <span class="highlight">Digital Skills</span> That Matter</h1>
+      <p class="hero-sub">
+        Join a focused community of learners exploring digital marketing fundamentals, freelancing tools, content creation, and modern online productivity skills. Learn at your own pace with shared resources and guidance.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" id="main-cta">
+          Join Free Community
+        </button>
+        <p class="cta-note">Educational community • No purchase required to join</p>
+      </div>
+      <p class="disclaimer-top">
+        This is an educational community focused on skill development. Individual results vary. No income or financial outcomes are promised or guaranteed.
+      </p>
+    </div>
+  </section>
 
-    <footer>© 2025 HIGH PAYING JOBS</footer>
-</div>
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title">What You’ll Explore</h2>
+      <p class="section-sub">Practical digital skills shared by community members and resources curated for beginners and intermediate learners.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3>Digital Marketing Basics</h3>
+          <p>Understand core concepts of content strategy, social platforms, audience research, and ethical promotion practices.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛠️</div>
+          <h3>Freelancing Tools & Workflows</h3>
+          <p>Discover commonly used tools, client communication tips, portfolio building, and productive work routines.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎬</div>
+          <h3>Content Creation Skills</h3>
+          <p>Learn simple techniques for creating engaging short-form video, writing, and visual content for personal or professional use.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💡</div>
+          <h3>Online Productivity</h3>
+          <p>Explore time management methods, free and paid tools, and habits that support consistent skill development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <!-- How it works -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How the Community Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Join the Group</h3>
+          <p>Click the button to access the free community chat. You’ll be redirected to the current group link.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Explore Resources</h3>
+          <p>Access shared guides, tips, and discussions focused on practical digital skill development.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Learn & Practice</h3>
+          <p>Apply what you learn at your own pace. Ask questions and share progress with other members.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // UPDATED CONFIG WITH FULL API KEY
-  const firebaseConfig = {
-    apiKey: "AIzaSyAoL47CNAJ7Rx1wAPgDbBjbkWef9OqfCBU", 
-    authDomain: "project-ads-4d652.firebaseapp.com",
-    databaseURL: "https://project-ads-4d652-default-rtdb.firebaseio.com",
-    projectId: "project-ads-4d652",
-    storageBucket: "project-ads-4d652.firebasestorage.app",
-    messagingSenderId: "180509858222",
-    appId: "1:180509858222:web:bd8a8c1a85c5f61345d03f"
-  };
+  <!-- Why join -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Join SkillForge?</h2>
+      <ul class="benefits">
+        <li>Focused on education and skill-building, not hype</li>
+        <li>Free to join the community discussion space</li>
+        <li>Beginner-friendly resources and conversations</li>
+        <li>Clear policies and transparent community guidelines</li>
+        <li>Mobile-friendly experience</li>
+      </ul>
+    </div>
+  </section>
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Start Learning?</h2>
+      <p>Join the free SkillForge community and begin exploring practical digital skills today.</p>
+      <button class="btn btn-primary btn-lg" id="banner-cta">Join Free Community</button>
+      <p class="disclaimer-small">Educational purposes only. No guarantees of income or specific results.</p>
+    </div>
+  </section>
 
-  // THIS FETCHES THE LINK FROM THE "page1" ENTRY IN YOUR DATABASE
-  db.ref('links/page1').on('value', (snapshot) => {
-    const url = snapshot.val();
-    if(url) { 
-        document.getElementById('whatsapp-btn').href = url; 
-    }
-  });
-</script>
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is joining the community free?</summary>
+          <p>Yes. Access to the community group is free. Any optional paid resources or programs (if offered in the future) will be clearly described separately.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What kind of content is shared?</summary>
+          <p>Educational discussions, skill tips, tool recommendations, and learning resources related to digital marketing, freelancing practices, content creation, and productivity.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you guarantee income or results?</summary>
+          <p>No. SkillForge is an educational community. We do not promise, guarantee, or imply any specific income, financial results, or career outcomes. Results depend entirely on individual effort, prior experience, and many external factors.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who is this for?</summary>
+          <p>Anyone aged 18+ interested in learning practical digital skills for personal development, career growth, or freelancing exploration. We do not target minors.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I leave the group?</summary>
+          <p>You can leave the community chat at any time using the platform’s exit options. See our Privacy Policy for data-related information.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Skill<span>Forge</span></a>
+        <p>An educational community focused on practical digital skill development.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+      <div class="footer-links">
+        <h4>Important</h4>
+        <p class="footer-disclaimer">This website and community provide educational information only. No financial, investment, or income advice is given. Past or shared experiences do not guarantee future results.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="year"></span> SkillForge Community. All rights reserved. For users 18 years and older.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loading overlay for CTA -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <p>Connecting to community…</p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
